@@ -12,119 +12,91 @@ def fill(text):
 
 
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.paragraph_format.line_spacing = 1.15
-rr = p.add_run("Analyst Reflection: ExxonMobil or Chevron When the War Premium Fades"); rr.font.size = Pt(17)
+rr = p.add_run("Analyst Reflection: Chevron Over ExxonMobil"); rr.font.size = Pt(17)
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.add_run("Companion to the Investor / Analyst Report · Written October 2026")
 
 h1("1 How I used AI")
-para("I used Claude (Anthropic), a general-purpose assistant, running in a coding environment with web search "
-     "and Python. It was not a finance-specific product. It suggested the ExxonMobil versus Chevron "
-     "scope, searched for current data (its built-in knowledge stopped before the period I analyzed), wrote and "
-     "ran the Python scenario model and charts, and drafted most of the report text. My role was "
-     "deciding at the points where the analysis could go different ways, checking the numbers the "
-     "conclusion depends on, and choosing the recommendation I was willing to sign.")
+para("I used Claude (Anthropic), a general purpose AI assistant, not a finance-specific product. It suggested "
+     "Exxon versus Chevron as a scope I could handle, searched the web for current data, wrote and ran the "
+     "Python model and charts, and drafted most of the text. My job was making the calls where the analysis "
+     "could go different ways, checking the numbers the conclusion depends on, and deciding what I was actually "
+     "willing to recommend.")
 
 h1("2 Where I pushed back")
-para("**Choosing the baseline.** The tool's first pass worked from the latest quarter, but Q2 2026 cash flow "
-     "was about $19 billion (Exxon) and $23 billion (Chevron) a year higher than oil prices alone explain. Of "
-     "the options it laid out, I rejected company guidance because Chevron's sub-$50 breakeven claim is what "
-     "the report needed to test, not assume, and I rejected the Q2 run rate because it treats wartime "
-     "refining margins as permanent. I chose 2025 results plus a Hess adjustment.")
-para("**Challenging the draft.** After the first draft I had the AI list the weakest points it could see, and "
-     "I made the call on each. The most important was Figure 2. It compared Exxon's breakeven with a $20 "
-     "billion buyback against Chevron's with a $10 billion buyback, but those are 2.8% and 2.3% of market "
-     "value. The smaller Chevron program made the two companies look closer than they are. I had the model "
-     "test both at the same 2.8%, and Chevron's breakeven rose by about $3 a barrel. I also "
-     "would not let one EIA number stand as \u201cthe\u201d peace price, because the EIA raised its fourth "
-     "quarter forecast by $14 in a single month. The report now calls $74 one input and leans on the "
-     "bracketing scenarios. The Hess adjustment used a $0.10 billion per $1 sensitivity the AI had simply "
-     "assumed. I kept it but required the report to flag it and show that zero or double moves Chevron's "
-     "breakevens by only about $1. Finally, I kept Exxon's Middle East recovery central despite the damaged "
-     "Qatar trains, because peace implies an eventual restart and the risk section already shows what "
-     "happens if it never comes (Exxon's yield at $74 falls to 4.5%).")
+para("**The baseline.** The AI's first pass worked off the latest quarter. When we tested it, Q2 2026 cash "
+     "flow was about $19 billion (Exxon) and $23 billion (Chevron) a year higher then oil prices alone could "
+     "explain. I didn't want to just trust company guidance either, because Chevron's claim that it breaks even "
+     "below $50 is exactly the thing the report should be testing. So I went with 2025 results plus an "
+     "adjustment for the Hess deal.")
+para("**The buyback chart.** After the first draft I had the AI list the weakest parts of its own work and I "
+     "decided each one. The big one was Figure 2. It compared Exxon with a $20 billion buyback against Chevron "
+     "with a $10 billion one, but that's 2.8% of Exxon's value versus 2.3% of Chevron's, so it wasn't a fair "
+     "comparison. I had both tested at 2.8%, which raised Chevron's breakeven by about $3. I also didn't "
+     "want one EIA number treated as “the” peace price when the EIA moved its own forecast $14 in a "
+     "month, so the report now calls $74 one input. The AI had just assumed a Hess oil sensitivity with no "
+     "source. I kept it but made the report say so and show it only moves the breakevens about $1.")
 
 h1("3 How I improved the work")
-para("**The question changed.** I started with a generic “which major is better” comparison. The first "
-     "data pulls showed Brent averaging $114 in September because of the Iran conflict, and the EIA forecasting "
-     "a fall to $74 by late 2027. That turned the question into which company still earns its share price "
-     "after the war premium fades.")
-para("**A better metric replaced a misleading one.** Annualized quarterly cash flow became a normalized "
-     "model. Chevron's large apparent discount shrank to a narrow lead: 5.2% versus 4.9% at $74.")
-para("**Fairness fixes.** I added the missing months of Hess for Chevron (+$2.9 billion), modeled Exxon's "
-     "Middle East output returning in peace, and stress-tested the case where it does not. I also corrected "
-     "a label that called Exxon's sensitivity an after-tax cash flow figure, which its source does not support.")
+para("The question itself changed. I started out with a basic “which oil major is better” idea, "
+     "then the first data showed Brent averaging $114 in September because of the war, with the EIA expecting "
+     "$74 by late 2027. That turned it into: which company still earns its share price once the war premium "
+     "is gone? I also replaced annualized quarterly cash flow with a normalized model, added the missing "
+     "months of Hess for Chevron, modeled Exxon's Middle East output coming back in peace (and tested the "
+     "case where it doesn't), and fixed a label that called Exxon's sensitivity an after-tax cash flow figure "
+     "when it's source didn't say that.")
 
 h1("4 What I verified")
-para("Verification mattered more than usual here, because the AI tool could not open SEC filings, EIA "
-     "pages or company websites from its environment. Every figure reached it through search engine summaries, "
-     "and those summaries sometimes disagreed. For example, Chevron's 2025 operating cash flow came back as both "
-     "$33.9 billion and $34.9 billion. Chevron's Q2 free cash flow appeared as both $15.4 billion "
-     "(company-adjusted) and $18.1 billion, and its market value ranged from $405 billion to $427 billion "
-     "depending on the site.")
-para("Every derived number was recomputed in code rather than typed by hand. I then pulled the original "
-     "documents myself: Chevron's Q2 2026 release and 10-Q, Exxon's 2025 results release, and Exxon's Q2 2026 "
-     "earnings slides. I had the AI extract the tables from them and compare them with the draft. I read the "
-     "Chevron sensitivity sentence in the 10-Q myself: about $600 million of after-tax earnings and cash "
-     "flow per $1 of Brent, which matched. Exxon's 2025 cash flow ($59.7 billion), free cash flow ($26.1 "
-     "billion) and distributions ($37.2 billion) all matched to the decimal, and its sensitivity page "
-     "confirmed $700 million per $1 of Brent. That page also showed $800 million per $1 of refining margin, "
-     "which I added to the report because it explains much of the Q2 cash surge.")
-para("**Two checks failed.** First, the draft said Exxon lost about $1.3 billion of upstream earnings to "
-     "Middle East volumes in Q2. Exxon's slides show $1.28 billion for the whole first half, which puts Q2 "
-     "near $1.03 billion; a news summary had relabeled a six-month figure as a quarter. Second, and more "
-     "important, the draft used $33.9 billion for Chevron's 2025 cash flow excluding working capital. "
-     "Chevron's fourth quarter release shows $34.9 billion. The $33.9 billion was the line above it, cash flow "
-     "including working capital. That $1 billion moved Chevron's peace-case yield from 4.9% to 5.2% and its "
-     "breakeven from $62 to $60, and it changed my recommendation (Section 6). I did not check the October "
-     "13 share prices, so those remain secondary-source figures.")
+para("Verification mattered alot here because the AI couldn't open the SEC, EIA or company websites from "
+     "its environment. Everything came through search result summaries, and they didn't always agree. "
+     "Chevron's 2025 cash flow showed up as both $33.9 and $34.9 billion, and its market value ranged from "
+     "$405 to $427 billion depending on the site. So I downloaded the original documents myself: both "
+     "companies' fourth quarter 2025 releases, Chevron's Q2 2026 release and 10-Q, and Exxon's Q2 2026 slides. "
+     "The AI pulled the tables out and compared them to the draft, and I read Chevron's sensitivity sentence "
+     "in the 10-Q myself ($600 million after tax per $1 of Brent, which matched). Exxon's 2025 cash flow, free "
+     "cash flow and payouts all matched exactly.")
+para("**Two checks failed.** The draft said Exxon lost $1.3 billion to Middle East volumes in Q2, but the "
+     "slides show $1.28 billion for the whole first half, so Q2 was closer to $1.03 billion. A news summary had "
+     "labeled a six-month number as one quarter. The bigger one was Chevron's 2025 cash flow excluding working "
+     "capital. The draft used $33.9 billion, but Chevron's release says $34.9 billion. The $33.9 was the line "
+     "right above it, cash flow including working capital. That $1 billion is what changed my recommendation "
+     "(Section 6). I never checked the October 13 share prices, so those are still from secondary sources.")
 
 h1("5 The AI tool's weaknesses")
-para("**Out-of-date knowledge presented confidently.** When I picked the topic, the tool described the "
-     "comparison as having “one dominant driver (oil price)” and did not know a war had pushed Brent "
-     "above $100. I noticed this when the first search showed September Brent at $114. It mattered because "
-     "the original framing would have produced a stale report. The fix was a rule that every current fact "
-     "must come from a dated 2026 source. That worked for facts, but the tool's framing still reflected its "
-     "older picture of the industry until the data forced a rethink.")
-para("**No access to primary sources.** The tool's environment blocked the SEC, EIA and company sites, so it "
-     "worked from search summaries that conflicted, took numbers from the wrong table row, and sometimes cited secondary "
-     "blogs. It flagged some conflicts but still built clean-looking tables from them. "
-     "I gave priority to company-reported definitions, derived market values myself, and checked the key "
-     "inputs by hand. That reduced the risk without removing it.")
-para("**Treating a recent quarter as representative.** Its first instinct was to annualize Q2 2026, "
-     "overstating normal cash flow by roughly a quarter (Section 2). The normalized model fixed this but "
-     "swapped in a different assumption (Section 7).")
-para("**False precision.** The model reports breakevens like “$60” to the dollar, but Chevron's "
-     "figure depends partly on a Hess oil price sensitivity of $0.10 billion per $1 that the tool assumed and "
-     "could not source. The report says a $1 billion error moves a breakeven by $1.40 to $1.70, so readers "
-     "can see how soft those figures are.")
+para("**Outdated knowledge.** When we picked the topic the AI called it a comparison with “one dominant "
+     "driver (oil price)” and had no idea a war had pushed oil over $100. I only noticed when the first "
+     "search came back with $114 Brent. After that, every current fact had to come from a dated 2026 source.")
+para("**No primary sources.** Since it couldn't open filings, it worked from summaries that sometimes grabbed "
+     "the wrong table row or relabeled time periods, and it still built clean looking tables out of them. Both "
+     "of my failed checks came from this. The fix was getting the documents myself, which worked for the "
+     "numbers I checked but not for the ones I didn't.")
+para("**Treating one quarter as normal.** Its first instinct was to annualize Q2, which would have overstated "
+     "normal cash flow by around a quarter. **False precision** was the other one. It reports breakevens to "
+     "the dollar even though some inputs are guesses, so the report now says how much each error moves them.")
 
 h1("6 Where my thinking changed")
-para("My recommendation changed twice. Headline numbers made Chevron look much cheaper. Once I normalized "
-     "the cash flows, the draft showed the two stocks tied at $74, and I leaned toward Exxon because it falls "
-     "less when oil drops and gets its Middle East barrels back in peace. Then the spot-check on Chevron's 2025 "
-     "cash flow found the draft $1 billion too low. With the correct figure, Chevron yields more in three of "
-     "four scenarios, even with no credit for Tengiz growth, so I switched to Chevron. The bigger lesson is "
-     "about conviction. A call that one corrected input can flip is a narrow call, and the report now says "
-     "plainly that Exxon is the better choice for anyone expecting oil below about $67.")
+para("My recommendation changed twice. On headline numbers Chevron looked a lot cheaper. After normalizing, "
+     "the draft showed the two tied at $74, and I leaned Exxon since it falls less when oil drops and gets "
+     "it's Middle East barrels back in a peace scenario. Then my spot-check found Chevron's 2025 cash flow was "
+     "$1 billion too low in the draft. With the right number Chevron yields more in three of four scenarios, "
+     "even without credit for Tengiz, so I switched to Chevron. The lesson for me was about conviction. If one "
+     "corrected number can flip the call, it's a narrow call, and the report should say that, which it now does.")
 
 h1("7 What remains uncertain")
-para("I have the least confidence in the 2025 baseline. It treats 2025 as normal and ignores both companies' "
-     "growth since then, apart from Hess. That penalizes Chevron in particular, because its Tengiz expansion "
-     "was ramping up during 2025, and it is the main reason my Chevron breakeven ($60) sits about $10 above "
-     "management's sub-$50 claim. If management is right, my recommendation gets stronger. If Chevron's normal "
-     "cash flow is below my $37.8 billion, the lead disappears. The next step is the late October third "
-     "quarter reports: take Chevron's Q3 operating cash flow, back out the oil price effect using its $0.60 "
-     "billion sensitivity, and compare the result with $37.8 billion.")
+para("I'm least confident in the 2025 baseline. It treats 2025 as normal and ignores growth since then, apart "
+     "from Hess, which hurts Chevron the most because Tengiz was ramping up during 2025. That's probably why my "
+     "Chevron breakeven ($60) is about $10 above what management claims. If they're right, my call gets "
+     "stronger. If Chevron's normal cash flow is below my $37.8 billion, the lead goes away. Next I would take "
+     "Chevron's Q3 results at the end of October, back out the oil price effect, and see where it lands.")
 
 h1("8 Would I stand behind this report?")
-para("Yes, as a relative call, with moderate conviction. I would defend \u201cprefer Chevron over Exxon for "
-     "an investor who wants integrated oil exposure and accepts the EIA's price path,\u201d because Chevron "
-     "yields more in three of four scenarios and pays the higher dividend even under a model that is "
-     "conservative toward it. I would also tell the committee that the lead is narrow, that Exxon is the "
-     "safer stock below about $67 oil, and that the call already flipped once on a single corrected input. I "
-     "would not put my name on a broader \u201cbuy energy now\u201d call, because both stocks have rallied on "
-     "cash flows the EIA expects to be temporary. Before committing real capital I would want the third "
-     "quarter results and every input in Table 1 checked against the original filings.")
+para("Yes, as a relative call, with moderate conviction. I'd defend “prefer Chevron over Exxon for an "
+     "investor who wants oil exposure and accepts the EIA's price path,” because Chevron comes out ahead "
+     "in three of four scenarios and pays a higher dividend under a model that is definately conservative "
+     "toward it. But I would tell the committee the lead is narrow, that Exxon is safer if oil goes below "
+     "about $67, and that the call already flipped once on one corrected number. I wouldn't sign a general "
+     "“buy energy now” call, and before putting real money in I'd want the Q3 results and every "
+     "input in Table 1 checked against the filings.")
 
 doc.save("Analyst_Reflection.docx")
 print("saved")

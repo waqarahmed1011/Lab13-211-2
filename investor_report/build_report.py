@@ -133,7 +133,7 @@ def f1(v): return f"{v:.1f}"
 # ---------------------------------------------------------------- title block
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.paragraph_format.line_spacing = 1.15
-rr = p.add_run("ExxonMobil or Chevron When the War Premium Fades"); rr.font.size = Pt(17)
+rr = p.add_run("Chevron Over ExxonMobil as the War Premium Fades"); rr.font.size = Pt(17)
 p = doc.add_paragraph(); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p.add_run("Investor / Analyst Report · Energy: U.S. Integrated Oil\nData and analysis current through October 13, 2026")
 
@@ -141,183 +141,102 @@ ab = doc.add_paragraph()
 ab.paragraph_format.left_indent = ab.paragraph_format.right_indent = Inches(0.5)
 rr = ab.add_run("Abstract—"); rr.bold = True; rr.italic = True
 runs(ab, (
-    "Brent crude trades near $105 because of the Iran conflict and disruption around the Strait of Hormuz, and "
-    "ExxonMobil (XOM) and Chevron (CVX) shares are both up roughly 30 to 40 percent in 2026. The U.S. Energy "
-    "Information Administration (EIA) expects most of that premium to fade by late 2027. This report asks which "
-    "major is the better holding for an investor who wants integrated oil exposure without betting on the war "
-    "lasting. Using a normalized cash flow model built on 2025 results and each company's disclosed oil price "
-    f"sensitivity, Chevron offers the higher free cash flow (FCF) yield at the EIA's late 2027 price of $74 "
-    f"({cr[74]['fcf_yld']:.1f}% versus {xr[74]['fcf_yld']:.1f}%) and in three of our four scenarios, even though the "
-    "model gives it no credit for growth at Tengiz. Exxon is the lower-risk stock: its FCF falls "
-    f"{100*(1-xr[74]['fcf']/xr[105]['fcf']):.0f}% from the war case to the peace case versus "
-    f"{100*(1-cr[74]['fcf']/cr[105]['fcf']):.0f}% for Chevron, and it covers its dividend more comfortably at $60. "
-    "**We prefer CVX over XOM.** The call flips toward Exxon if oil settles below about $67 or if Chevron's "
-    "third quarter results fail to show the cash flow our conservative model assumes."))
+    "Brent crude is near $105 because of the Iran conflict, and the EIA expects most of that premium to fade by "
+    "late 2027. We ask whether ExxonMobil (XOM) or Chevron (CVX) is the better holding for an investor who wants "
+    "integrated oil exposure without betting on the war lasting. After normalizing cash flow to a no-war "
+    f"baseline, Chevron has the higher free cash flow (FCF) yield at $74 Brent ({cr[74]['fcf_yld']:.1f}% versus "
+    f"{xr[74]['fcf_yld']:.1f}%) and in three of four scenarios. Exxon is the steadier stock if oil falls hard. "
+    "**We prefer CVX**, unless oil settles below about $67."))
 
-# ---------------------------------------------------------------- 1
-h1("1 The question and the recommendation")
-para("**Investment question.** For an investor adding a position in a U.S. integrated oil major today, is "
-     "ExxonMobil or Chevron the better risk-adjusted choice, given that current oil prices carry a war premium "
-     "that most forecasters expect to shrink?")
-para("**Recommendation: prefer Chevron over ExxonMobil.** This is a relative call, not a claim that either "
-     "stock is cheap. Three findings drive it. First, after normalizing away the war windfall, Chevron generates "
-     f"more free cash flow per dollar of market value: {cr[74]['fcf_yld']:.1f}% versus {xr[74]['fcf_yld']:.1f}% at "
-     "$74 Brent, and more in every scenario except a glut below the EIA's path. Second, that result is "
-     "conservative for Chevron. The model leaves out its Tengiz expansion, and management says its breakeven is "
-     "below $50, about $10 under our estimate. Third, Chevron pays the higher dividend (3.3% versus 2.4%), and "
-     "its dividend stays covered down to about $60 Brent. The cost of this choice is risk: Chevron is more "
-     "exposed to falling oil, and Exxon has a hedge Chevron lacks. Roughly 20% of Exxon's 2025 production came "
-     "from Qatar and the UAE [4], so if the conflict ends, oil falls but those barrels come back.")
+h1("1 Question and recommendation")
+para("**Question.** For an investor adding a U.S. integrated oil major today, is ExxonMobil or Chevron the "
+     "better choice when current oil prices carry a war premium that is expected to shrink?")
+para(f"**Recommendation: prefer Chevron.** Once the war windfall is stripped out, Chevron produces more free "
+     f"cash flow per dollar of market value ({cr[74]['fcf_yld']:.1f}% versus {xr[74]['fcf_yld']:.1f}% at $74) "
+     "and pays the higher dividend (3.3% versus 2.4%). That holds even though our model gives Chevron no credit "
+     "for its Tengiz expansion. The cost is risk. Chevron's cash flow is more sensitive to oil, and Exxon has a "
+     "hedge Chevron lacks: about 20% of its 2025 output came from Qatar and the UAE [4], and those barrels "
+     "return as prices fall in a peace scenario. This is a relative call, not a claim that either stock is cheap.")
 
-# ---------------------------------------------------------------- 2
-h1("2 Why this question, why now")
-para("Brent closed at $71.32 on February 27, 2026, the last trading day before the conflict began, and passed "
-     "$100 by mid-March [20]. It averaged about $104 in the second quarter [14] and $114 in September, and "
-     "traded near $105 on October 13 [13][21]. The EIA's October outlook forecasts Brent at $105 in the fourth "
-     "quarter of 2026, $84 on average in 2027, and $74 by the fourth quarter of 2027. That path assumes "
-     "about 4.5 million barrels per day of Middle East output stays shut in for now, with most of it returning "
-     "by mid-2027 [13]. The EIA's own baseline, in other words, is that today's price is temporary.")
-para("Equity investors have priced the windfall aggressively. By late July, Chevron was up 29% for the year "
-     "and Exxon about two points ahead of it [19]. With both companies reporting third quarter results at "
-     "the end of October, the question for a new buyer is less about which company is better run and more "
-     "about which one still earns its share price when $105 oil becomes $74 oil.")
-
-# ---------------------------------------------------------------- 3
-h1("3 The two companies")
-para("Table 1 sets out the inputs used throughout. Market values use second quarter diluted share counts "
-     "(for Exxon, implied by its reported EPS). Exxon is the larger, more diversified business, with "
-     "bigger refining and chemicals operations. Chevron completed its $53 billion acquisition of Hess on July "
-     "18, 2025, gaining a 30% stake in Guyana's Stabroek block [18]. Because Hess was only in Chevron's numbers "
-     "for about five months of 2025, Chevron's 2025 cash flow understates its current scale; Section 4 adjusts for "
-     "that.")
-para("The exposures differ sharply. Exxon's Qatar LNG and UAE assets were disrupted from March, and the "
-     "company's own earnings bridges show Middle East volumes cutting upstream earnings by $1.28 billion in "
-     "the first half versus 2025, about $1.03 billion of it in the second quarter [4][5]. Chevron's direct regional exposure is the Saudi Arabia and Kuwait Partitioned Zone, about 1% of "
-     "second quarter output, plus its Leviathan gas field off Israel, which was shut for 33 days and restarted "
-     "on April 2 [8][17].")
-
-table("Table 1", "Key inputs. Sources in brackets. Cash flow (CFO) is operating cash flow excluding working capital.",
+h1("2 Background")
+para("Brent was $71 just before the conflict began in late February, passed $100 by mid-March [20], averaged "
+     "about $104 in the second quarter [14] and $114 in September, and was near $105 on October 13 [13][21]. "
+     "The EIA's October outlook sees $105 in late 2026, $84 on average in 2027 and $74 by late 2027 [13]. Both "
+     "stocks are up roughly 30% or more this year [19]. Chevron closed its $53 billion Hess acquisition in July "
+     "2025, adding 30% of Guyana's Stabroek block [18]. Exxon's Middle East volumes cut its upstream earnings "
+     "by $1.28 billion in the first half, about $1.03 billion of it in Q2 [5]; Chevron's regional exposure is "
+     "about 1% of output [17]. Table 1 lists the inputs used throughout.")
+para("This matters for a buyer today because the share prices already reflect much of the windfall. The "
+     "useful question is not which company is better run, but which one still earns its share price once $105 "
+     "oil becomes $74 oil. Both report third quarter results at the end of October, which gives a near-term "
+     "check on the analysis.")
+table("Table 1", "Key inputs. CFO is operating cash flow excluding working capital. Sources in brackets.",
       ["Item", "XOM", "CVX"],
       [["Share price, Oct 13, 2026 [16]", "$173.24", "$217.73"],
-       ["Diluted shares, Q2 2026 [1][6]", f"{co['XOM']['sh']:.2f}B", f"{co['CVX']['sh']:.2f}B"],
-       ["Market value", f"${co['XOM']['mcap']:.0f}B", f"${co['CVX']['mcap']:.0f}B"],
-       ["Annual dividend at current rate [1][8]", f"${co['XOM']['div']:.1f}B", f"${co['CVX']['div']:.1f}B"],
-       ["Dividend yield", f"{100*co['XOM']['div']/co['XOM']['mcap']:.1f}%", f"{100*co['CVX']['div']/co['CVX']['mcap']:.1f}%"],
+       ["Market value (Q2 diluted shares) [1][6]", f"${co['XOM']['mcap']:.0f}B", f"${co['CVX']['mcap']:.0f}B"],
+       ["Dividend, annual / yield [1][6]", f"${co['XOM']['div']:.1f}B / {100*co['XOM']['div']/co['XOM']['mcap']:.1f}%",
+        f"${co['CVX']['div']:.1f}B / {100*co['CVX']['div']/co['CVX']['mcap']:.1f}%"],
        ["2025 CFO [2][7]", "$59.7B", "$34.9B"],
        ["2026 capex guidance [2][9]", "$27–29B", "$18–19B"],
-       ["Buyback plan / pace [2][11]", "$20B", "$10–20B / ~$11B"],
-       ["Mgmt. sensitivity per $1 Brent [3][9]", "~$0.70B", "~$0.60B"],
+       ["Sensitivity per $1 Brent [3][9]", "~$0.70B", "~$0.60B"],
        ["Middle East share of output [4][17]", "~20%", "~1%"]],
       [3.1, 1.1, 1.3])
-# ---------------------------------------------------------------- 4
-h1("4 Method: normalizing cash flow")
-h2("4.1 Why not just annualize the latest quarter")
-para("The obvious shortcut is to multiply second quarter cash flow by four. That gives $102.6 billion for "
-     "Exxon and $78.8 billion for Chevron. We tested whether oil prices alone explain those figures. Q2 Brent "
-     "averaged about $103.50 versus $69.10 in 2025 [14][15]. Backing out that $34.40 difference with each "
-     "company's own sensitivity still leaves $78.5 billion for Exxon and $58.2 billion for Chevron at 2025 oil "
-     "prices, compared with actual 2025 cash flow of $59.7 billion and $34.9 billion. Roughly $19 billion "
-     "(Exxon) and $23 billion (Chevron) of the run rate is unexplained by crude. Part of it is real growth, "
-     "chiefly Hess for Chevron. Much of it is the war itself. Refining margins spiked, and Exxon's own guidance puts the "
-     "earnings effect of each $1 per barrel of refining margin at about $800 million a year, more than its "
-     "$700 million per $1 of Brent [5]. Those margins should normalize along with crude. Annualizing Q2 would treat a wartime "
-     "quarter as the new normal, so we reject it as a base case.")
-h2("4.2 The model")
-para("We start from 2025 operating cash flow, a year with no war premium (Brent $69.10), and move it to each "
-     "scenario price using the company's disclosed sensitivity: about $0.70 billion per $1 for Exxon [3] and "
-     "$0.60 billion for Chevron [9]. Cash flow at price *P* is the 2025 base plus sensitivity times "
-     "(*P* minus $69.10). For Chevron we add the missing part of Hess. Hess reported $6.35 billion of 2024 cash "
-     "flow before working capital at roughly $80 Brent [12]. Adjusting that to $69 with an assumed $0.10 "
-     f"billion per $1 (our assumption, not a sourced figure; zero or double would move the adjustment by about $0.6 billion and Chevron's breakevens by about $1) and taking the 55% of 2025 that preceded the deal gives +${hess_adj:.1f} billion, for a "
-     f"Chevron base of ${co['CVX']['base']:.1f} billion. Free cash flow subtracts the capex guidance midpoint "
-     "for Exxon ($28 billion) and $18.5 billion for Chevron, which guided to the low end of its range [9]. "
-     "Exxon plans $20 billion of buybacks, 2.8% of its market value. To compare like with like, we test "
-     f"Chevron at the same 2.8%, about ${co['CVX']['bb']:.0f} billion, which sits inside its $10 to $20 "
-     "billion range and slightly above its first half pace of $5.5 billion [11].")
-para("We run four Brent scenarios: a post-war glut at $60, the EIA's late 2027 price of $74, its 2027 "
-     "average of $84, and the current $105 if the war persists. We treat $74 as one input, not a "
-     "prediction. The EIA raised its fourth quarter 2026 forecast by $14 in a single month [13], so its "
-     "forecasts are moving quickly, and the $60 and $84 cases bracket it on both sides. In the war case only, Exxon's cash flow is "
-     "reduced by $4.1 billion a year (four times the Q2 loss) because its Middle East volumes stay offline. "
-     "The 2025 base already includes those volumes, so the peace cases assume they return.")
-para("**Assumptions to keep in view.** Both companies' sensitivities are management estimates. Exxon's is "
-     "an upstream figure, and we treat it as a cash flow figure. The model gives neither company credit for "
-     "growth after 2025 other than Hess. That understates both, and it understates Chevron more, because its "
-     "Tengiz expansion ramped up during 2025.")
 
-# ---------------------------------------------------------------- 5
-h1("5 Results")
+h1("3 Method")
+para("Annualizing Q2 2026 cash flow would be misleading. Even after removing the oil price effect with each "
+     "company's own sensitivity, Q2 implies about $19 billion (Exxon) and $23 billion (Chevron) more annual cash "
+     "flow than 2025 actually produced. Much of the gap is war-inflated refining margins: Exxon puts each $1 of "
+     "refining margin at about $800 million of annual earnings [5].")
+para("Instead we start from 2025 cash flow (Brent $69) and move it to each scenario price using the companies' "
+     "disclosed sensitivities [3][9]. For Chevron we add the part of 2025 before Hess was acquired, +$"
+     f"{hess_adj:.1f} billion from Hess's 2024 results [12], using an assumed $0.10 billion per $1 Hess "
+     "sensitivity (zero or double moves Chevron's breakevens by about $1). Free cash flow subtracts capex of $28 "
+     "billion (Exxon) and $18.5 billion (Chevron) [9]. Buybacks are tested at the same 2.8% of market value for "
+     f"both: Exxon's $20 billion plan and about ${co['CVX']['bb']:.0f} billion for Chevron. Scenarios are $60 "
+     "(glut), $74 (EIA late 2027), $84 (EIA 2027 average) and $105 (war persists), where Exxon also loses $4.1 "
+     "billion a year of Middle East volumes. We treat $74 as one input, not a forecast; the EIA moved its Q4 "
+     "2026 view by $14 in one month [13]. The model credits neither company with growth after 2025 except Hess, "
+     "which understates Chevron more.")
+
+h1("4 Results")
+figure("fig1_fcf_yield.png", "Figure 1",
+       "Free cash flow yield under four Brent scenarios, with dividend yields. Author's model.")
 rows = []
 for B, nm in [(60, "Glut, $60"), (74, "Peace, $74"), (84, "EIA 2027, $84"), (105, "War, $105")]:
     rows.append([nm, f"${xr[B]['fcf']:.1f}B", f"${xr[B]['resid']:.1f}B", f"${cr[B]['fcf']:.1f}B", f"${cr[B]['resid']:.1f}B"])
-table("Table 2", "Annual free cash flow and cash left after dividends, before buybacks. Author's model.",
+table("Table 2", "Annual free cash flow, and cash left after dividends before buybacks. Author's model.",
       ["Scenario", "XOM FCF", "XOM after div.", "CVX FCF", "CVX after div."], rows, [1.3, 1.0, 1.1, 1.0, 1.1])
-figure("fig1_fcf_yield.png", "Figure 1",
-       "Free cash flow yield (FCF divided by market value) under four Brent scenarios, with each stock's "
-       "dividend yield. Author's model; inputs from Table 1.")
-para(f"Figure 1 and Table 2 show the core trade-off. At $74 Chevron yields {cr[74]['fcf_yld']:.1f}% against "
-     f"Exxon's {xr[74]['fcf_yld']:.1f}%, and its lead widens as oil rises: {cr[84]['fcf_yld']:.1f}% versus "
-     f"{xr[84]['fcf_yld']:.1f}% at $84 and {cr[105]['fcf_yld']:.1f}% versus {xr[105]['fcf_yld']:.1f}% if the war "
-     f"persists. Exxon wins only in the $60 glut ({xr[60]['fcf_yld']:.1f}% versus {cr[60]['fcf_yld']:.1f}%). The "
-     f"other side of the trade is volatility. Moving from war to peace, Chevron's free cash flow falls from "
-     f"${cr[105]['fcf']:.1f} billion to ${cr[74]['fcf']:.1f} billion (down "
-     f"{100*(1-cr[74]['fcf']/cr[105]['fcf']):.0f}%), while Exxon's falls from ${xr[105]['fcf']:.1f} billion to "
-     f"${xr[74]['fcf']:.1f} billion (down {100*(1-xr[74]['fcf']/xr[105]['fcf']):.0f}%). At $60, Exxon has "
-     f"${xr[60]['resid']:.1f} billion left after its dividend, while Chevron roughly breaks even on its "
-     f"${co['CVX']['div']:.1f} billion dividend.")
+para(f"Chevron yields more at $74 ({cr[74]['fcf_yld']:.1f}% versus {xr[74]['fcf_yld']:.1f}%), $84 "
+     f"({cr[84]['fcf_yld']:.1f}% versus {xr[84]['fcf_yld']:.1f}%) and $105 ({cr[105]['fcf_yld']:.1f}% versus "
+     f"{xr[105]['fcf_yld']:.1f}%). Exxon wins only at $60. The two cross at about $67. The trade-off is "
+     f"volatility: from war to peace, Chevron's FCF falls {100*(1-cr[74]['fcf']/cr[105]['fcf']):.0f}% and "
+     f"Exxon's {100*(1-xr[74]['fcf']/xr[105]['fcf']):.0f}%. At $60, Exxon has ${xr[60]['resid']:.1f} billion "
+     "left after its dividend while Chevron roughly breaks even.")
 figure("fig2_breakevens.png", "Figure 2",
-       "Brent price at which normalized cash flow covers capex and the dividend, and capex, dividend and "
-       "buyback, against EIA forecast prices [13]. Author's model.")
-para(f"Figure 2 restates the same results as breakevens. Exxon covers capex and its dividend at about "
-     f"${X['be_div']:.0f} Brent and its full $20 billion buyback at about ${X['be_bb']:.0f}. Chevron needs "
-     f"about ${C['be_div']:.0f} for capex and dividend, and ${C['be_bb']:.0f} to add a buyback of the same 2.8% size. "
-     "Both full payout programs need more than the EIA's $74 late 2027 price, so investors should expect "
-     "buybacks to shrink or be funded from the balance sheet. Exxon has done the latter before: in 2025 "
-     "it distributed $37.2 billion against $26.1 billion of free cash flow [2]. Chevron's management "
-     "targets a capex-plus-dividend breakeven below $50 [10]. Our estimate is about $10 higher, mostly "
-     "because we exclude growth since 2025. If management is closer to right, Chevron's lead is larger than "
-     "Figure 1 shows; if we are, it still leads at every price above about $67.")
+       "Brent price needed to fund capex and dividend, and capex, dividend and a 2.8% buyback. Author's model.")
+para(f"Exxon covers capex and dividend at about ${X['be_div']:.0f} and adds its buyback at ${X['be_bb']:.0f}; "
+     f"Chevron needs ${C['be_div']:.0f} and ${C['be_bb']:.0f}. Both full payout programs need more than $74, so "
+     "buybacks will likely shrink after the war or lean on the balance sheet, as Exxon's did in 2025 when it "
+     "paid out $37.2 billion against $26.1 billion of free cash flow [2]. Chevron says its breakeven is below $50 [10], about $10 under "
+     "our estimate. If management is closer to right, Chevron's lead is larger than Figure 1 shows.")
 
-# ---------------------------------------------------------------- 6
-h1("6 Alternatives considered")
-para("**The case for Exxon.** Exxon is the steadier stock. Its cash flow is less sensitive to oil (0.10% of "
-     "market value per $1 of Brent versus 0.14% for Chevron), it falls less when the war premium fades, and its "
-     "dividend is well covered at $60. Its Middle East volumes act as a hedge, since they return just as prices "
-     "fall. An investor who expects oil below about $67 after the war, or who cares most about dividend safety, "
-     "should prefer Exxon. We do not, because the EIA path and Chevron's own planning range ($60 to $80 for its "
-     "buyback guidance [10]) both sit above that level, and Exxon's lower risk comes with a lower yield.")
-para("**Owning neither.** Both stocks have rallied on a windfall the EIA calls temporary, and a peace-case "
-     "FCF yield near 5% is not a margin of safety. An investor with no mandate to hold energy could reasonably "
-     "wait for a lower entry point. Our recommendation is aimed at the investor who wants the exposure and "
-     "has to choose between the two.")
+h1("5 Alternatives and risks")
+para("**The case for Exxon.** It falls less when oil drops, its dividend is safe at $60, and its Middle East "
+     "barrels act as a hedge. Investors expecting oil below about $67, or who care most about dividend safety, "
+     "should prefer it. **Owning neither** is also reasonable: both stocks rallied on a windfall the EIA calls "
+     "temporary, and a 5% peace-case yield is not a margin of safety.")
+para("**Risks to the call.** If Chevron's Q3 results imply normalized cash flow below our "
+     f"${co['CVX']['base']:.1f} billion, its lead shrinks. A fast ceasefire hurts Chevron more and returns "
+     "Exxon's volumes; if those volumes never return, Exxon's peace-case yield drops to about 4.5%. A post-war "
+     "glut below $60 is the scenario where Exxon wins, and Chevron's Tengiz output depends on the "
+     "intermittently disrupted CPC pipeline [17]. Each $1 billion error in a company's base cash flow moves its "
+     "breakevens by $1.40 to $1.70 a barrel.")
 
-# ---------------------------------------------------------------- 7
-h1("7 Risks and what would change the call")
-para("**Chevron's growth may disappoint.** The recommendation leans on Chevron's cash flow holding up after "
-     "the Hess integration. If its third quarter cash flow, adjusted for Brent, implies a normalized base below "
-     f"our ${co['CVX']['base']:.1f} billion, its yield advantage shrinks or disappears. This is the first thing we "
-     "would check after the late October reports.")
-para("**Exxon's hedge could pay out sooner.** A fast ceasefire would hit Chevron harder while returning Exxon's "
-     "Middle East volumes. If those volumes never return, though, Exxon's peace-case yield falls to about 4.5% "
-     "and Chevron's lead widens. A full-quarter Hormuz closure would cut Exxon's Middle East output by about "
-     "750,000 barrels of oil equivalent a day versus 2025 [5].")
-para("**Oil can overshoot downward.** Once the 4.5 million barrels per day of shut-in output returns, a glut "
-     "below $60 is plausible. That is the scenario where Exxon wins, and it would hurt both stocks in "
-     "absolute terms. Chevron's Tengiz output also depends on the CPC pipeline through the Black Sea, which "
-     "has been intermittently disrupted [17].")
-para("**Model risk.** The 2025 cash flow figures, the Hess adjustment and the sensitivities are the inputs "
-     "the conclusion depends on most. A $1 billion error in a company's base moves its breakevens by about "
-     "$1.4 (Exxon) to $1.7 (Chevron) a barrel.")
-
-# ---------------------------------------------------------------- 8
-h1("8 Conclusion")
-para("At today's prices the market is valuing both majors partly on wartime cash flows. Once those cash flows "
-     "are normalized, Chevron offers more free cash flow and a higher dividend per dollar invested, even before "
-     "crediting growth our model leaves out. Exxon is the safer stock if oil collapses, and investors who "
-     "expect that outcome should own it instead. For the investor who wants integrated oil exposure and "
-     "accepts the EIA's path, we prefer Chevron, and we would revisit the call after both companies report "
-     "third quarter results. We would not recommend either stock to an investor who does not need energy "
-     "exposure until the price of entry reflects peace-case cash flows.")
+h1("6 Conclusion")
+para("The market is valuing both majors partly on wartime cash flow. Normalized, Chevron offers more cash and "
+     "a higher dividend per dollar invested, even before credit for growth the model leaves out. Exxon is the "
+     "safer stock if oil collapses. For an investor who wants the exposure and accepts the EIA's path, we "
+     "prefer Chevron, and we would revisit the call after third quarter results.")
 
 # ---------------------------------------------------------------- references
 doc.add_page_break()
