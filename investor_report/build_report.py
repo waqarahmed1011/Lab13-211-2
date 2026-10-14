@@ -183,22 +183,22 @@ para("Equity investors have priced the windfall aggressively. By late July, Chev
 
 # ---------------------------------------------------------------- 3
 h1("3 The two companies")
-para("Table 1 sets out the inputs used throughout. Market values use the diluted share counts implied by "
-     "each company's second quarter earnings per share. Exxon is the larger, more diversified business, with "
+para("Table 1 sets out the inputs used throughout. Market values use second quarter diluted share counts "
+     "(for Exxon, implied by its reported EPS). Exxon is the larger, more diversified business, with "
      "bigger refining and chemicals operations. Chevron completed its $53 billion acquisition of Hess on July "
      "18, 2025, gaining a 30% stake in Guyana's Stabroek block [18]. Because Hess was only in Chevron's numbers "
      "for about five months of 2025, Chevron's 2025 cash flow understates its current scale; Section 4 adjusts for "
      "that.")
 para("The exposures differ sharply. Exxon's Qatar LNG and UAE assets were disrupted from March, and the "
-     "company attributed about $1.3 billion of second quarter upstream earnings losses to Middle East volumes "
-     "[4][5]. Chevron's direct regional exposure is the Saudi Arabia and Kuwait Partitioned Zone, about 1% of "
+     "company's own earnings bridges show Middle East volumes cutting upstream earnings by $1.28 billion in "
+     "the first half versus 2025, about $1.03 billion of it in the second quarter [4][5]. Chevron's direct regional exposure is the Saudi Arabia and Kuwait Partitioned Zone, about 1% of "
      "second quarter output, plus its Leviathan gas field off Israel, which was shut for 33 days and restarted "
      "on April 2 [8][17].")
 
 table("Table 1", "Key inputs. Sources in brackets. Cash flow (CFO) is operating cash flow excluding working capital.",
       ["Item", "XOM", "CVX"],
       [["Share price, Oct 13, 2026 [16]", "$173.24", "$217.73"],
-       ["Diluted shares (from Q2 EPS) [1][6]", f"{co['XOM']['sh']:.2f}B", f"{co['CVX']['sh']:.2f}B"],
+       ["Diluted shares, Q2 2026 [1][6]", f"{co['XOM']['sh']:.2f}B", f"{co['CVX']['sh']:.2f}B"],
        ["Market value", f"${co['XOM']['mcap']:.0f}B", f"${co['CVX']['mcap']:.0f}B"],
        ["Annual dividend at current rate [1][8]", f"${co['XOM']['div']:.1f}B", f"${co['CVX']['div']:.1f}B"],
        ["Dividend yield", f"{100*co['XOM']['div']/co['XOM']['mcap']:.1f}%", f"{100*co['CVX']['div']/co['CVX']['mcap']:.1f}%"],
@@ -217,8 +217,9 @@ para("The obvious shortcut is to multiply second quarter cash flow by four. That
      "company's own sensitivity still leaves $78.5 billion for Exxon and $58.2 billion for Chevron at 2025 oil "
      "prices, compared with actual 2025 cash flow of $59.7 billion and $33.9 billion. Roughly $19 billion "
      "(Exxon) and $24 billion (Chevron) of the run rate is unexplained by crude. Part of it is real growth, "
-     "chiefly Hess for Chevron. Much of it is the war itself: Exxon reported record refining margins in the "
-     "quarter [5], and those margins should normalize along with crude. Annualizing Q2 would treat a wartime "
+     "chiefly Hess for Chevron. Much of it is the war itself. Refining margins spiked, and Exxon's own guidance puts the "
+     "earnings effect of each $1 per barrel of refining margin at about $800 million a year, more than its "
+     "$700 million per $1 of Brent [5]. Those margins should normalize along with crude. Annualizing Q2 would treat a wartime "
      "quarter as the new normal, so we reject it as a base case.")
 h2("4.2 The model")
 para("We start from 2025 operating cash flow, a year with no war premium (Brent $69.10), and move it to each "
@@ -236,7 +237,7 @@ para("We run four Brent scenarios: a post-war glut at $60, the EIA's late 2027 p
      "average of $84, and the current $105 if the war persists. We treat $74 as one input, not a "
      "prediction. The EIA raised its fourth quarter 2026 forecast by $14 in a single month [13], so its "
      "forecasts are moving quickly, and the $60 and $84 cases bracket it on both sides. In the war case only, Exxon's cash flow is "
-     "reduced by $5.2 billion a year (four times the Q2 loss) because its Middle East volumes stay offline. "
+     "reduced by $4.1 billion a year (four times the Q2 loss) because its Middle East volumes stay offline. "
      "The 2025 base already includes those volumes, so the peace cases assume they return.")
 para("**Assumptions to keep in view.** Both companies' sensitivities are management estimates. Exxon's is "
      "an upstream figure, and we treat it as a cash flow figure. The model gives neither company credit for "
@@ -287,16 +288,14 @@ para("**Owning neither.** Both stocks have rallied on a windfall the EIA calls t
      "FCF yield near 5% is not a margin of safety. An investor with no mandate to hold energy could reasonably "
      "wait for a lower entry point. Our recommendation is aimed at the investor who wants the exposure and "
      "has to choose between the two.")
-para("**The optimistic base.** If Q2 2026 cash flow were the right base, both stocks would yield 8% to 10% "
-     "even at $74, and both would look cheap. We rejected this in Section 4.1 because it treats wartime "
-     "refining and gas margins as permanent.")
 
 # ---------------------------------------------------------------- 7
 h1("7 Risks and what would change the call")
 para("**Exxon's hedge may not pay out.** Two Qatar LNG trains were damaged and Exxon has not given a restart "
-     "date [4]. If those volumes stay offline in the peace case, scaling the Q2 loss to $74 oil cuts about $3.7 "
-     "billion from Exxon's FCF. Its yield at $74 then falls to roughly 4.4%, below Chevron's 4.9%, and most "
-     "of the preference disappears.")
+     "date [4]. If those volumes stay offline in the peace case, scaling the Q2 loss to $74 oil cuts about $2.9 "
+     "billion from Exxon's FCF. Its yield at $74 then falls to roughly 4.5%, below Chevron's 4.9%, and most "
+     "of the preference disappears. A full-quarter Hormuz closure would be worse: Exxon says it would cut "
+     "Middle East output by about 750,000 barrels of oil equivalent a day versus 2025 [5].")
 para("**Chevron's growth may be bigger than modeled.** If Chevron's third quarter cash flow, adjusted for "
      "Brent, implies a normalized base well above our $36.8 billion, its breakeven moves toward management's "
      "target and Chevron becomes the better value. This is the first thing we would check after the late "
@@ -326,7 +325,7 @@ refs = [
  "ExxonMobil. (2026, January 30). ExxonMobil announces 2025 results. https://corporate.exxonmobil.com/news/news-releases/2026/0130-exxonmobil-announces-2025-results",
  "ExxonMobil. (2026). 2Q 2026 sensitivities and key assumptions. https://d1io3yog0oux5.cloudfront.net/_9c0226c1dc3efd2dbe7760ece1f33886/exxonmobil/db/2431/22314/file/Sensitivities+and+Key+Assumptions.pdf",
  "Exxon Mobil Corp. (2026, April 8). Form 8-K, first-quarter 2026 earnings considerations. https://www.sec.gov/Archives/edgar/data/34088/000003408826000056/f8k1q992040826.htm",
- "Investing.com. (2026, July 31). ExxonMobil Q2 2026 slides: record margins offset Middle East disruption. https://www.investing.com/news/company-news/exxonmobil-q2-2026-slides-record-margins-offset-middle-east-disruption-93CH-4828827",
+ "ExxonMobil Holdings Corp. (2026, July 31). 2Q 2026 earnings call presentation slides (slides 9, 13, 17 and sensitivities page). https://investor.exxonmobil.com",
  "Chevron Corp. (2026, July 31). Chevron reports second quarter 2026 results [Form 8-K, Ex. 99.1]. https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000162/a06302026ex9918-k.htm",
  "Chevron Corp. (2026, January). Chevron reports fourth quarter 2025 results [Form 8-K, Ex. 99.1]. https://www.sec.gov/Archives/edgar/data/93410/000009341026000019/a12312025ex9918-k.htm",
  "Chevron Corp. (2026). Form 10-Q for the quarter ended June 30, 2026. https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000167/cvx-20260630.htm",

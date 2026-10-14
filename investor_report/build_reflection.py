@@ -41,9 +41,7 @@ para("**Challenging the draft.** After the first draft I had the AI list the wea
      "assumed. I kept it but required the report to flag it and show that zero or double moves Chevron's "
      "breakevens by only about $1. Finally, I kept Exxon's Middle East recovery central despite the damaged "
      "Qatar trains, because peace implies an eventual restart and the risk section already shows what "
-     "happens if it never comes (Exxon's yield at $74 falls to 4.4%).")
-fill("Optional: if a spot-check turned up a mismatch, add 2 to 3 sentences here on what the summary said, "
-     "what the source said, and what changed. Otherwise delete this line.")
+     "happens if it never comes (Exxon's yield at $74 falls to 4.5%).")
 
 h1("3 How I improved the work")
 para("**The question changed.** I started with a generic “which major is better” comparison. The first "
@@ -64,12 +62,21 @@ para("Verification mattered more than usual here, because the AI tool could not 
      "(company-adjusted) and $18.1 billion, and its market value ranged from $405 billion to $427 billion "
      "depending on the site. Q2 Brent was $104.40 (World Bank) or $102.93 (EIA), too small a gap "
      "to matter.")
-para("Every derived number was recomputed in code rather than typed by hand: market values from share "
-     "counts implied by each company's reported EPS, free cash flow, and breakevens. I then checked the "
-     "inputs the conclusion depends on most against the original documents:")
-fill("List each spot-check you did (1 to 6 from SPOT_CHECKS.md): the number, the source you opened, and "
-     "whether it matched. Give at least one in full detail: why it mattered, how you checked it, and what "
-     "you found.")
+para("Every derived number was recomputed in code rather than typed by hand. I then pulled the original "
+     "documents myself: Chevron's Q2 2026 release and 10-Q, Exxon's 2025 results release, and Exxon's Q2 2026 "
+     "earnings slides. I had the AI extract the tables from them and compare them with the draft. I read the "
+     "Chevron sensitivity sentence in the 10-Q myself: about $600 million of after-tax earnings and cash "
+     "flow per $1 of Brent, which matched. Exxon's 2025 cash flow ($59.7 billion), free cash flow ($26.1 "
+     "billion) and distributions ($37.2 billion) all matched to the decimal, and its sensitivity page "
+     "confirmed $700 million per $1 of Brent. That page also showed $800 million per $1 of refining margin, "
+     "which I added to the report because it explains much of the Q2 cash surge.")
+para("**The check that failed.** The draft said Exxon lost about $1.3 billion of upstream earnings to "
+     "Middle East volumes in Q2, a figure from a news summary. Exxon's slides show $1.28 billion for the "
+     "whole first half, with Q2 about $0.78 billion worse than Q1, which puts Q2 alone near $1.03 billion. "
+     "The summary had relabeled a six-month number as a quarter. That number drives the war scenario, so "
+     "the war-case deduction fell from $5.2 billion to $4.1 billion a year. The recommendation did not "
+     "change. I could not verify Chevron's full-year 2025 cash flow, because the release I found covered Q2 "
+     "2026, and I did not check the October 13 share prices, so both remain secondary-source figures.")
 
 h1("5 The AI tool's weaknesses")
 para("**Out-of-date knowledge presented confidently.** When I picked the topic, the tool described the "

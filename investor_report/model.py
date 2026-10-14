@@ -6,8 +6,9 @@ HESS_MISSING_SHARE = 0.55                              # deal closed Jul 18 2025
 hess_adj = HESS_MISSING_SHARE * (HESS_CFO24 - HESS_SENS*(HESS_B24-B25))
 
 co = {
- "XOM": dict(name="ExxonMobil", px=173.24, sh=14.5/3.48, base=59.7, sens=0.70, capex=28.0, div=17.2, bb=20.0, me_loss=4*1.3),
- "CVX": dict(name="Chevron",    px=217.73, sh=12.1/6.11, base=33.9+hess_adj, sens=0.60, capex=18.5, div=4*1.78*(12.1/6.11), bb=None, me_loss=0.0),
+ "XOM": dict(name="ExxonMobil", px=173.24, sh=14.5/3.48, base=59.7, sens=0.70, capex=28.0, div=17.2, bb=20.0, me_loss=4*1.03),   # Q2 ME hit: (1,280 YTD + 780 QoQ)/2 = $1.03B, from 2Q26 slides 13 and 17
+ "CVX": dict(name="Chevron",    px=217.73, sh=1.975087, base=33.9+hess_adj, sens=0.60, capex=18.5, div=4*3.504,   # Q2 release: diluted shares, dividends paid
+            bb=None, me_loss=0.0),
 }
 SCEN = [("Glut", 60, False), ("Peace (EIA 4Q27)", 74, False), ("EIA 2027 avg", 84, False), ("War persists", 105, True)]
 
