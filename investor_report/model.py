@@ -7,7 +7,7 @@ hess_adj = HESS_MISSING_SHARE * (HESS_CFO24 - HESS_SENS*(HESS_B24-B25))
 
 co = {
  "XOM": dict(name="ExxonMobil", px=173.24, sh=14.5/3.48, base=59.7, sens=0.70, capex=28.0, div=17.2, bb=20.0, me_loss=4*1.3),
- "CVX": dict(name="Chevron",    px=217.73, sh=12.1/6.11, base=33.9+hess_adj, sens=0.60, capex=18.5, div=4*1.78*(12.1/6.11), bb=10.0, me_loss=0.0),
+ "CVX": dict(name="Chevron",    px=217.73, sh=12.1/6.11, base=33.9+hess_adj, sens=0.60, capex=18.5, div=4*1.78*(12.1/6.11), bb=None, me_loss=0.0),
 }
 SCEN = [("Glut", 60, False), ("Peace (EIA 4Q27)", 74, False), ("EIA 2027 avg", 84, False), ("War persists", 105, True)]
 
@@ -15,6 +15,9 @@ def cfo(c, B, war): return c["base"] + c["sens"]*(B-B25) - (c["me_loss"] if war 
 
 def run():
     out = {}
+    x = co["XOM"]; x["mcap"] = x["px"]*x["sh"]
+    BB_PCT = x["bb"]/x["mcap"]   # Exxon plan as % of market value, applied to both for a like-for-like test
+    c = co["CVX"]; c["mcap"] = c["px"]*c["sh"]; c["bb"] = BB_PCT*c["mcap"]
     for k,c in co.items():
         c["mcap"] = c["px"]*c["sh"]
         rows=[]

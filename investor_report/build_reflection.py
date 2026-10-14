@@ -25,37 +25,36 @@ para("I used Claude (Anthropic), a general-purpose assistant, running in a codin
      "conclusion depends on, and choosing the recommendation I was willing to sign.")
 
 h1("2 Where I pushed back")
-para("**Choosing the baseline.** The most important decision in the report was what counts as a company's "
-     "normal cash flow. The tool's first pass worked from the most recent quarter. When we tested that "
-     "against the companies' own oil price sensitivities, Q2 2026 cash flow turned out to be about $19 billion "
-     "(Exxon) and $24 billion (Chevron) higher per year than oil prices alone explain. The AI then laid out "
-     "three options: annualize Q2, start from 2025 results with an adjustment for Chevron's Hess acquisition, or "
-     "rely on company guidance such as Chevron's claim that it breaks even below $50 Brent. I rejected "
-     "company guidance because that sub-$50 claim is exactly what the report needed to test, not assume. I "
-     "also rejected the Q2 run rate because it treats wartime refining margins as permanent. I chose the 2025 "
-     "base plus Hess. The result was that Chevron's breakeven came out near $62, well above its own claim, "
-     "and the report now names that gap as its largest uncertainty instead of hiding it.")
-fill("Add your second pushback example from the spot-checks, in your own words: which number you checked, "
-     "what the AI or search summary said, what the source actually said, and what changed in the report. If "
-     "every check matched, say that and describe instead a claim in the draft you questioned and why.")
+para("**Choosing the baseline.** The tool's first pass worked from the latest quarter, but Q2 2026 cash flow "
+     "was about $19 billion (Exxon) and $24 billion (Chevron) a year higher than oil prices alone explain. Of "
+     "the options it laid out, I rejected company guidance because Chevron's sub-$50 breakeven claim is what "
+     "the report needed to test, not assume, and I rejected the Q2 run rate because it treats wartime "
+     "refining margins as permanent. I chose 2025 results plus a Hess adjustment.")
+para("**Challenging the draft.** After the first draft I had the AI list the weakest points it could see, and "
+     "I made the call on each. The most important was Figure 2. It compared Exxon's breakeven with a $20 "
+     "billion buyback against Chevron's with a $10 billion buyback, but those are 2.8% and 2.3% of market "
+     "value. The smaller Chevron program made the two companies look closer than they are. I had the model "
+     "test both at the same 2.8%, and Chevron's breakeven rose from $79 to $82, against $77 for Exxon. I also "
+     "would not let one EIA number stand as \u201cthe\u201d peace price, because the EIA raised its fourth "
+     "quarter forecast by $14 in a single month. The report now calls $74 one input and leans on the "
+     "bracketing scenarios. The Hess adjustment used a $0.10 billion per $1 sensitivity the AI had simply "
+     "assumed. I kept it but required the report to flag it and show that zero or double moves Chevron's "
+     "breakevens by only about $1. Finally, I kept Exxon's Middle East recovery central despite the damaged "
+     "Qatar trains, because peace implies an eventual restart and the risk section already shows what "
+     "happens if it never comes (Exxon's yield at $74 falls to 4.4%).")
+fill("Optional: if a spot-check turned up a mismatch, add 2 to 3 sentences here on what the summary said, "
+     "what the source said, and what changed. Otherwise delete this line.")
 
 h1("3 How I improved the work")
 para("**The question changed.** I started with a generic “which major is better” comparison. The first "
      "data pulls showed Brent averaging $114 in September because of the Iran conflict, and the EIA forecasting "
      "a fall to $74 by late 2027. That turned the question into which company still earns its share price "
      "after the war premium fades.")
-para("**A better metric replaced a misleading one.** Annualized quarterly cash flow was replaced by a "
-     "normalized model: 2025 cash flow moved to each scenario price using each company's disclosed "
-     "sensitivity. With that change, Chevron's apparent valuation discount disappeared. Both stocks yield "
-     "about 4.9% at $74.")
-para("**A fairness adjustment and a stress test were added.** Chevron's 2025 numbers include only about five "
-     "months of Hess, so I added the missing portion (+$2.9 billion) using Hess's last annual report. I also "
-     "chose to model Exxon's Middle East production returning in a peace scenario, which became the "
-     "report's most distinctive argument. Then I tested the case where it does not return: Exxon's peace-case "
-     "yield drops to about 4.4%, below Chevron's, and most of the preference disappears. That test is in the "
-     "risk section.")
-para("**A labeling error was corrected.** The draft called Exxon's sensitivity an after-tax cash flow "
-     "figure; the source only supports an upstream earnings sensitivity.")
+para("**A better metric replaced a misleading one.** Annualized quarterly cash flow became a normalized "
+     "model, and Chevron's apparent valuation discount disappeared: both stocks yield about 4.9% at $74.")
+para("**Fairness fixes.** I added the missing months of Hess for Chevron (+$2.9 billion), modeled Exxon's "
+     "Middle East output returning in peace, and stress-tested the case where it does not. I also corrected "
+     "a label that called Exxon's sensitivity an after-tax cash flow figure, which its source does not support.")
 
 h1("4 What I verified")
 para("Verification mattered more than usual here, because the AI tool could not open SEC filings, EIA "

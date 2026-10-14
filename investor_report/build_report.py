@@ -226,13 +226,16 @@ para("We start from 2025 operating cash flow, a year with no war premium (Brent 
      "$0.60 billion for Chevron [9]. Cash flow at price *P* is the 2025 base plus sensitivity times "
      "(*P* minus $69.10). For Chevron we add the missing part of Hess. Hess reported $6.35 billion of 2024 cash "
      "flow before working capital at roughly $80 Brent [12]. Adjusting that to $69 with an assumed $0.10 "
-     f"billion per $1 and taking the 55% of 2025 that preceded the deal gives +${hess_adj:.1f} billion, for a "
+     f"billion per $1 (our assumption, not a sourced figure; zero or double would move the adjustment by about $0.6 billion and Chevron's breakevens by about $1) and taking the 55% of 2025 that preceded the deal gives +${hess_adj:.1f} billion, for a "
      f"Chevron base of ${co['CVX']['base']:.1f} billion. Free cash flow subtracts the capex guidance midpoint "
      "for Exxon ($28 billion) and $18.5 billion for Chevron, which guided to the low end of its range [9]. "
-     "Buybacks are Exxon's $20 billion plan and Chevron's $10 billion floor, which matches its $5.5 billion "
-     "first half pace [11].")
+     "Exxon plans $20 billion of buybacks, 2.8% of its market value. To compare like with like, we test "
+     f"Chevron at the same 2.8%, about ${co['CVX']['bb']:.0f} billion, which sits inside its $10 to $20 "
+     "billion range and slightly above its first half pace of $5.5 billion [11].")
 para("We run four Brent scenarios: a post-war glut at $60, the EIA's late 2027 price of $74, its 2027 "
-     "average of $84, and the current $105 if the war persists. In the war case only, Exxon's cash flow is "
+     "average of $84, and the current $105 if the war persists. We treat $74 as one input, not a "
+     "prediction. The EIA raised its fourth quarter 2026 forecast by $14 in a single month [13], so its "
+     "forecasts are moving quickly, and the $60 and $84 cases bracket it on both sides. In the war case only, Exxon's cash flow is "
      "reduced by $5.2 billion a year (four times the Q2 loss) because its Middle East volumes stay offline. "
      "The 2025 base already includes those volumes, so the peace cases assume they return.")
 para("**Assumptions to keep in view.** Both companies' sensitivities are management estimates. Exxon's is "
@@ -265,7 +268,7 @@ figure("fig2_breakevens.png", "Figure 2",
        "buyback, against EIA forecast prices [13]. Author's model.")
 para(f"Figure 2 restates the same results as breakevens. Exxon covers capex and its dividend at about "
      f"${X['be_div']:.0f} Brent and its full $20 billion buyback at about ${X['be_bb']:.0f}. Chevron needs "
-     f"about ${C['be_div']:.0f} for capex and dividend, and ${C['be_bb']:.0f} to add a $10 billion buyback. "
+     f"about ${C['be_div']:.0f} for capex and dividend, and ${C['be_bb']:.0f} to add a buyback of the same 2.8% size. "
      "Both full payout programs need more than the EIA's $74 late 2027 price, so investors should expect "
      "buybacks to shrink or be funded from the balance sheet. Exxon has done the latter before: in 2025 "
      "it distributed $37.2 billion against $26.1 billion of free cash flow [2]. Chevron's management "
